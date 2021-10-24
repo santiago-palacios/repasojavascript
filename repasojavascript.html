@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE=edge">
+    <meta name="viewport" content="widht=device-widht, initial-scale=1.0">
+    <title>documentt</title>
+</head>
+<body>
+    <script>
+        var notas = [1,2,3,2,4,4,2,3];
+        var promedio = 0;
+        var notaMasAlta = -1;
+        var cantidadNotaMasAlta = 0;
+
+        //ciclos dentro de ciclos
+        for(var posicionTemporal = 0; posicionTemporal < notas.length; posicionTemporal++) {
+            //for externo
+            console.log("for externo: " + notas[posicionTemporal]);
+            if(notas[posicionTemporal] > notaMasAlta){
+                notaMasAlta = notas[posicionTemporal] ;
+            }
+            for(var posicionComparador = posicionTemporal + 1; posicionComparador < notas.length; posicionComparador++) {
+                //for interno
+                console.log("for interno:   " + notas[posicionComparador], notaMasAlta);
+                if(notas[posicionComparador] > notaMasAlta) {
+                    notaMasAlta = notas[posicionComparador];
+                }
+            }
+            promedio = promedio + notas[posicionTemporal];
+        }
+        for(var inicial = 0; inicial < notas.length; inicial++){
+            if(notas[inicial] == notaMasAlta){
+                cantidadNotaMasAlta ++;
+            }
+        }
+        console.log("Promedio: " + eval(promedio/notas.length));
+        console.log("Nota más alta: " + notaMasAlta);
+        console.log("Cantidad nota más alta: " + cantidadNotaMasAlta)
+    </script>
+</body>
+
+</html>
